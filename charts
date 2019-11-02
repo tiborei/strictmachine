@@ -1,0 +1,14 @@
+  var chart_yearly_payment = [];
+  var total_interest = FinalBal - (InitialDep + DepositBal);
+    
+    chart_yearly_payment = [
+     { name: 'Initial Investment', value: mathjs.round(InitialDep/FinalBal*100,1)},
+     { name: 'Total Contributions', value: mathjs.round(DepositBal/FinalBal*100,1 )},
+     { name: 'Total Gain', value: mathjs.round(total_interest/FinalBal*100,1 )},
+    ];
+
+    ctx.addChart({
+     type: 'pie',
+     data: chart_yearly_payment,
+     afterVariable: 'pie_chart'
+   });
