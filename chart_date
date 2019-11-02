@@ -1,0 +1,86 @@
+// add first_day as extra variable
+
+// loop year adjustment for t(-1) in order to start the line chart at 0 on the x axis
+
+
+    var first_day_date = new Date(first_day * milisecondsInADay); // first day adjustments for months
+    
+     if ((q === 12) && (first_day_date.getMonth() === 0)){
+      daydiff = 31;}
+    
+     else if ((q === 12) && 
+              (first_day_date.getMonth() === 1)){
+      daydiff = 31;}
+
+     else if((q === 12) && (first_day_date.getDate() === 27) && 
+             (first_day_date.getMonth() === 2)){ 
+      daydiff = 28;}
+    
+     else if((q === 12) && (first_day_date.getDate() === 28) && 
+             (first_day_date.getMonth() === 2)){ 
+      daydiff = 28;}
+    
+     else if ((q === 12) && (first_day_date.getDate() === 29) && 
+              (first_day_date.getMonth() === 2)){
+      daydiff = 29;}
+    
+     else if((q === 12) && (first_day_date.getDate() === 30) && 
+             (first_day_date.getMonth() === 2)){ 
+      daydiff = 30;}
+    
+     else if ((q === 12) && (first_day_date.getDate() === 31) && 
+              (first_day_date.getMonth() === 2)){
+      daydiff = 31;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 2)){
+      daydiff = 28;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 3)){
+      daydiff = 31;}
+       
+     else if ((q === 12) && (first_day_date.getMonth() === 4)){
+      daydiff = 30;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 5)){
+      daydiff = 31;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 6)){
+      daydiff = 30;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 7)){
+      daydiff = 31;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 8)){
+      daydiff = 31;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 9)){
+      daydiff = 30;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 10)){
+      daydiff = 31;}
+    
+     else if ((q === 12) && (first_day_date.getMonth() === 11)){
+      daydiff = 30;}
+    
+     else {daydiff = 365.25/ q;}
+     
+     var int_year = (first_day_date.getYear() - 100) / 4;
+    
+     if (((q === 12) && ((int_year % 1) === 0) && // divisible by 4
+       ((first_day_date.getYear()/100 % 1) !== 0) && // not divisble by 100
+       (((first_day_date.getMonth() === 2)))) ||  // march
+        
+       (((q === 12) && ((first_day_date.getYear() + 1900) / 400 % 1) === 0) &&  // divisble by 400
+       (first_day_date.getMonth() === 2))){  // march
+       
+       daydiff = 29;} // leap year adjustment 
+
+     if ((q === 12) && (first_day_date.getDate() === 29) && 
+         (first_day_date.getMonth() === 1)){
+     daydiff = 31;}
+    
+     if ((q === 12) && (first_day_date.getDate() === 28) && 
+         (first_day_date.getMonth() === 1)){
+      daydiff = 31;}
+      
+  var first_day2 = first_day - daydiff;
