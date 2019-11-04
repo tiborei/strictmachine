@@ -1,0 +1,19 @@
+  if ((point_fraction < i + 1) || (i === t * 12)){
+     
+   rowLabel = i % 12 === 0 ? i / 12 : "... and " +  (i % 12) + " months"; 
+   
+   out.push([
+      
+     rowLabel,
+    
+         (mathjs.round(Principal_bal, 2)),
+         (mathjs.round(Balance_interest, 2)),
+         (mathjs.round(Balance_total, 2)),
+         (mathjs.round(Contributions, 2)),
+
+      ]); 
+     
+     rowLabel ++;
+     point_fraction += 12;
+   
+   }
