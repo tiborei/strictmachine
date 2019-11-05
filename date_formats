@@ -1,0 +1,5 @@
+   var months = (t - Math.trunc(t)) * 12;
+      
+   var days = (months - Math.trunc(months)) * 365.2425/12;
+   
+   ctx.addHtml(Math.trunc(t) + ' year(s) ' + Math.trunc(months) + ' month(s) and '+  Math.trunc(days) + ' day(s).')
