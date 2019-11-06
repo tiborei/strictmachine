@@ -1,0 +1,3 @@
+ periods = Math.log((eq_p * (FinalBal + PeriodicDep * type) + PeriodicDep) / 
+     
+    	     (eq_p * InitialDep + PeriodicDep * (1 + eq_p * type))) / Math.log(eq_p + 1);
