@@ -1,0 +1,76 @@
+ var oldI;
+      var newI = eq_p;
+      var iteration = 0;
+      
+      do {
+        oldI = newI;
+
+     var dividend = 
+            
+            InitialDep * Math.pow(newI + 1, periods) + 
+             
+            PeriodicDep * (Math.pow((newI + 1), (periods)) - 1) * (1 + newI * type) / 
+         
+            newI - FinalBal;
+
+     var divisor = 
+     
+     		InitialDep * periods * Math.pow(newI + 1, periods - 1) +
+         
+           ((PeriodicDep * periods * Math.pow((newI + 1), (periods - 1)) * (1 + newI * type) +
+            
+            (PeriodicDep * (Math.pow((newI + 1), (periods)) - 1))) * newI - 
+            
+            (PeriodicDep * (Math.pow((newI + 1), (periods)) - 1) * (1 + newI * type))) / 
+           
+            Math.pow(newI, 2);
+
+         newI = newI - dividend / divisor;
+        
+        ++iteration;
+   
+      } while (
+        
+        Math.abs(oldI - newI) > MIN_PRECISION &&  
+        
+        iteration <= MAX_ITERATIONS
+  
+      );
+  
+      eq_p = newI; //equivalent rate
+
+      var eq_p2;
+      var oldR;
+      var newR = eq_p;
+      var iterationR = 0;
+      
+      do {
+       
+        oldR = newR;
+        
+         if (ct1 === 0){
+           
+          var dividendR = (Math.pow(ex, newR / q) - 1) - eq_p;
+        
+          var divisorR = Math.pow(ex, newR / q) / q;
+          
+          newR = newR - dividendR / divisorR;
+        
+        } else {
+        
+          var dividendR2 = Math.pow((1 + newR / m), (m / q)) - 1 - eq_p;
+          
+          var divisorR2 = Math.pow((1 + newR / m), (m / q - 1)) / q;
+        
+       newR = newR - dividendR2 / divisorR2;}
+
+        ++iterationR;
+        
+      } while (
+        
+        Math.abs(oldR - newR) > MIN_PRECISION &&  
+        
+        iterationR <= MAX_ITERATIONS
+      );
+     
+      eq_p2 = newR; //yearly nominal rate
