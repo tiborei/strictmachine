@@ -48,7 +48,7 @@
        
         oldR = newR;
         
-         if (ct1 === 0){
+         if (ct1 === 0){ // continuous compounding
            
           var dividendR = (Math.pow(ex, newR / q) - 1) - eq_p;
         
@@ -56,7 +56,7 @@
           
           newR = newR - dividendR / divisorR;
         
-        } else {
+        } else { // regular compounding
         
           var dividendR2 = Math.pow((1 + newR / m), (m / q)) - 1 - eq_p;
           
