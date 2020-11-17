@@ -246,7 +246,6 @@ ctx.addHtml('The amount is ' +
                   
             ' what I see.',{afterVariable: 'Amount'});
 
-
 ctx.addHtml('The country code is  ' +
             
           country +
