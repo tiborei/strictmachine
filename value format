@@ -1,0 +1,262 @@
+"use strict";
+
+var country;
+omni.onInit(function(ctx) {
+    country = ctx.getCountryCode();
+});
+
+omni.onResult(['Amount'],
+
+function(ctx,_Amount) {
+
+var Amount = _Amount.toNumber();
+
+var userLang = navigator.language || navigator.userLanguage; 
+
+var curr = "USD";
+var amount;
+
+if(country==='AF'){curr='AFN'} //Afghanistan
+if(country==='AL'){curr='ALL'} //Albania
+if(country==='DZ'){curr='DZD'} //Algeria
+if(country==='AS'){curr='USD'} //American Samoa
+if(country==='AD'){curr='EUR'} //Andorra
+if(country==='AO'){curr='AOA'} //Angola
+if(country==='AI'){curr='XCD'} //Anguilla
+if(country==='AG'){curr='XCD'} //Antigua And Barbuda
+if(country==='AR'){curr='ARS'} //Argentina
+if(country==='AM'){curr='AMD'} //Armenia
+if(country==='AW'){curr='AWG'} //Aruba
+if(country==='AU'){curr='AUD'} //Australia
+if(country==='AT'){curr='EUR'} //Austria
+if(country==='AZ'){curr='AZN'} //Azerbaijan
+if(country==='BS'){curr='BSD'} //Bahamas
+if(country==='BH'){curr='BHD'} //Bahrain
+if(country==='BD'){curr='BDT'} //Bangladesh
+if(country==='BB'){curr='BBD'} //Barbados
+if(country==='BY'){curr='BYR'} //Belarus
+if(country==='BE'){curr='EUR'} //Belgium
+if(country==='BZ'){curr='BZD'} //Belize
+if(country==='BJ'){curr='XOF'} //Benin
+if(country==='BM'){curr='BMD'} //Bermuda
+if(country==='BT'){curr='BTN'} //Bhutan
+if(country==='BA'){curr='BAM'} //Bosnia And Herzegovina
+if(country==='BW'){curr='BWP'} //Botswana
+if(country==='BV'){curr='NOK'} //Bouvet Island
+if(country==='BR'){curr='BRL'} //Brazil
+if(country==='IO'){curr='USD'} //British Indian Ocean Territory
+if(country==='BN'){curr='BND'} //Brunei Darussalam
+if(country==='BG'){curr='BGN'} //Bulgaria
+if(country==='BF'){curr='XOF'} //Burkina Faso
+if(country==='BI'){curr='BIF'} //Burundi
+if(country==='KH'){curr='KHR'} //Cambodia
+if(country==='CM'){curr='XAF'} //Cameroon
+if(country==='CA'){curr='CAD'} //Canada
+if(country==='KY'){curr='KYD'} //Cayman Islands
+if(country==='CF'){curr='XAF'} //Central African Republic
+if(country==='TD'){curr='XAF'} //Chad
+if(country==='CL'){curr='CLF'} //Chile
+if(country==='CN'){curr='CNY'} //China
+if(country==='CX'){curr='AUD'} //Christmas Island
+if(country==='CC'){curr='AUD'} //Cocos (Keeling) Islands
+if(country==='CO'){curr='COP'} //Colombia
+if(country==='KM'){curr='KMF'} //Comoros
+if(country==='CG'){curr='XAF'} //Congo
+if(country==='CK'){curr='NZD'} //Cook Islands
+if(country==='CR'){curr='CRC'} //Costa Rica
+if(country==='HR'){curr='HRK'} //Croatia
+if(country==='CU'){curr='CUC'} //Cuba
+if(country==='CY'){curr='EUR'} //Cyprus
+if(country==='CZ'){curr='CZK'} //Czech Republic
+if(country==='DK'){curr='DKK'} //Denmark
+if(country==='DJ'){curr='DJF'} //Djibouti
+if(country==='DM'){curr='XCD'} //Dominica
+if(country==='DO'){curr='DOP'} //Dominican Republic
+if(country==='EC'){curr='USD'} //Ecuador
+if(country==='EG'){curr='EGP'} //Egypt
+if(country==='SV'){curr='SVC'} //El Salvador
+if(country==='GQ'){curr='XAF'} //Equatorial Guinea
+if(country==='ER'){curr='ERN'} //Eritrea
+if(country==='EE'){curr='EUR'} //Estonia
+if(country==='ET'){curr='ETB'} //Ethiopia
+if(country==='FO'){curr='DKK'} //Faroe Islands
+if(country==='FJ'){curr='FJD'} //Fiji
+if(country==='FI'){curr='EUR'} //Finland
+if(country==='FR'){curr='EUR'} //France
+if(country==='GF'){curr='EUR'} //French Guiana
+if(country==='PF'){curr='XPF'} //French Polynesia
+if(country==='TF'){curr='EUR'} //French Southern Territories
+if(country==='GA'){curr='XAF'} //Gabon
+if(country==='GM'){curr='GMD'} //Gambia
+if(country==='GE'){curr='GEL'} //Georgia
+if(country==='DE'){curr='EUR'} //Germany
+if(country==='GH'){curr='GHS'} //Ghana
+if(country==='GI'){curr='GIP'} //Gibraltar
+if(country==='GR'){curr='EUR'} //Greece
+if(country==='GL'){curr='DKK'} //Greenland
+if(country==='GD'){curr='XCD'} //Grenada
+if(country==='GP'){curr='EUR'} //Guadeloupe
+if(country==='GU'){curr='USD'} //Guam
+if(country==='GT'){curr='GTQ'} //Guatemala
+if(country==='GG'){curr='GBP'} //Guernsey
+if(country==='GN'){curr='GNF'} //Guinea
+if(country==='GW'){curr='XOF'} //Guinea-Bissau
+if(country==='GY'){curr='GYD'} //Guyana
+if(country==='HT'){curr='HTG'} //Haiti
+if(country==='VA'){curr='EUR'} //Holy See (Vatican City State)
+if(country==='HN'){curr='HNL'} //Honduras
+if(country==='HK'){curr='HKD'} //Hong Kong
+if(country==='HU'){curr='HUF'} //Hungary
+if(country==='IS'){curr='ISK'} //Iceland
+if(country==='IN'){curr='INR'} //India
+if(country==='ID'){curr='IDR'} //Indonesia
+if(country==='IR'){curr='IRR'} //Iran, Islamic Republic Of
+if(country==='IQ'){curr='IQD'} //Iraq
+if(country==='IE'){curr='EUR'} //Ireland
+if(country==='IM'){curr='GBP'} //Isle Of Man
+if(country==='IL'){curr='ILS'} //Israel
+if(country==='IT'){curr='EUR'} //Italy
+if(country==='JM'){curr='JMD'} //Jamaica
+if(country==='JP'){curr='JPY'} //Japan
+if(country==='JE'){curr='GBP'} //Jersey
+if(country==='JO'){curr='JOD'} //Jordan
+if(country==='KZ'){curr='KZT'} //Kazakhstan
+if(country==='KE'){curr='KES'} //Kenya
+if(country==='KI'){curr='AUD'} //Kiribati
+if(country==='KR'){curr='KRW'} //South Korea
+if(country==='KW'){curr='KWD'} //Kuwait
+if(country==='KG'){curr='KGS'} //Kyrgyzstan
+if(country==='LV'){curr='EUR'} //Latvia
+if(country==='LB'){curr='LBP'} //Lebanon
+if(country==='LS'){curr='LSL'} //Lesotho
+if(country==='LR'){curr='LRD'} //Liberia
+if(country==='LI'){curr='CHF'} //Liechtenstein
+if(country==='LT'){curr='EUR'} //Lithuania
+if(country==='LU'){curr='EUR'} //Luxembourg
+if(country==='MO'){curr='MOP'} //Macao
+if(country==='MG'){curr='MGA'} //Madagascar
+if(country==='MW'){curr='MWK'} //Malawi
+if(country==='MY'){curr='MYR'} //Malaysia
+if(country==='MV'){curr='MVR'} //Maldives
+if(country==='ML'){curr='XOF'} //Mali
+if(country==='MT'){curr='EUR'} //Malta
+if(country==='MH'){curr='USD'} //Marshall Islands
+if(country==='MQ'){curr='EUR'} //Martinique
+if(country==='MR'){curr='MRO'} //Mauritania
+if(country==='MU'){curr='MUR'} //Mauritius
+if(country==='YT'){curr='EUR'} //Mayotte
+if(country==='MX'){curr='MXN'} //Mexico
+if(country==='FM'){curr='USD'} //Micronesia, Federated States Of
+if(country==='MC'){curr='EUR'} //Monaco
+if(country==='MN'){curr='MNT'} //Mongolia
+if(country==='ME'){curr='EUR'} //Montenegro
+if(country==='MS'){curr='XCD'} //Montserrat
+if(country==='MA'){curr='MAD'} //Morocco
+if(country==='MZ'){curr='MZN'} //Mozambique
+if(country==='MM'){curr='MMK'} //Myanmar
+if(country==='NA'){curr='NAD'} //Namibia
+if(country==='NR'){curr='AUD'} //Nauru
+if(country==='NP'){curr='NPR'} //Nepal
+if(country==='NL'){curr='EUR'} //Netherlands
+if(country==='NC'){curr='XPF'} //New Caledonia
+if(country==='NZ'){curr='NZD'} //New Zealand
+if(country==='NI'){curr='NIO'} //Nicaragua
+if(country==='NE'){curr='XOF'} //Niger
+if(country==='NG'){curr='NGN'} //Nigeria
+if(country==='NU'){curr='NZD'} //Niue
+if(country==='NF'){curr='AUD'} //Norfolk Island
+if(country==='MP'){curr='USD'} //Northern Mariana Islands
+if(country==='NO'){curr='NOK'} //Norway
+if(country==='OM'){curr='OMR'} //Oman
+if(country==='PK'){curr='PKR'} //Pakistan
+if(country==='PW'){curr='USD'} //Palau
+if(country==='PA'){curr='PAB'} //Panama
+if(country==='PG'){curr='PGK'} //Papua New Guinea
+if(country==='PY'){curr='PYG'} //Paraguay
+if(country==='PE'){curr='PEN'} //Peru
+if(country==='PH'){curr='PHP'} //Philippines
+if(country==='PN'){curr='NZD'} //Pitcairn
+if(country==='PL'){curr='PLN'} //Poland
+if(country==='PT'){curr='EUR'} //Portugal
+if(country==='PR'){curr='USD'} //Puerto Rico
+if(country==='QA'){curr='QAR'} //Qatar
+if(country==='RO'){curr='RON'} //Romania
+if(country==='RU'){curr='RUB'} //Russian Federation
+if(country==='RW'){curr='RWF'} //Rwanda
+if(country==='KN'){curr='XCD'} //Saint Kitts And Nevis
+if(country==='LC'){curr='XCD'} //Saint Lucia
+if(country==='PM'){curr='EUR'} //Saint Pierre And Miquelon
+if(country==='WS'){curr='WST'} //Samoa
+if(country==='SM'){curr='EUR'} //San Marino
+if(country==='ST'){curr='STD'} //Sao Tome And Principe
+if(country==='SA'){curr='SAR'} //Saudi Arabia
+if(country==='SN'){curr='XOF'} //Senegal
+if(country==='RS'){curr='RSD'} //Serbia
+if(country==='SC'){curr='SCR'} //Seychelles
+if(country==='SL'){curr='SLL'} //Sierra Leone
+if(country==='SG'){curr='SGD'} //Singapore
+if(country==='SK'){curr='EUR'} //Slovakia
+if(country==='SI'){curr='EUR'} //Slovenia
+if(country==='SB'){curr='SBD'} //Solomon Islands
+if(country==='SO'){curr='SOS'} //Somalia
+if(country==='ZA'){curr='ZAR'} //South Africa
+if(country==='ES'){curr='EUR'} //Spain
+if(country==='LK'){curr='LKR'} //Sri Lanka
+if(country==='SD'){curr='SDG'} //Sudan
+if(country==='SR'){curr='SRD'} //Suriname
+if(country==='SJ'){curr='NOK'} //Svalbard And Jan Mayen
+if(country==='SZ'){curr='SZL'} //Swaziland
+if(country==='SE'){curr='SEK'} //Sweden
+if(country==='CH'){curr='CHE'} //Switzerland
+if(country==='SY'){curr='SYP'} //Syrian Arab Republic
+if(country==='TJ'){curr='TJS'} //Tajikistan
+if(country==='TH'){curr='THB'} //Thailand
+if(country==='TL'){curr='USD'} //Timor-Leste
+if(country==='TG'){curr='XOF'} //Togo
+if(country==='TK'){curr='NZD'} //Tokelau
+if(country==='TO'){curr='TOP'} //Tonga
+if(country==='TT'){curr='TTD'} //Trinidad And Tobago
+if(country==='TN'){curr='TND'} //Tunisia
+if(country==='TR'){curr='TRY'} //Turkey
+if(country==='TM'){curr='TMT'} //Turkmenistan
+if(country==='TC'){curr='USD'} //Turks And Caicos Islands
+if(country==='TV'){curr='AUD'} //Tuvalu
+if(country==='UG'){curr='UGX'} //Uganda
+if(country==='UA'){curr='UAH'} //Ukraine
+if(country==='AE'){curr='AED'} //United Arab Emirates
+if(country==='GB'){curr='GBP'} //United Kingdom
+if(country==='US'){curr='USD'} //United States
+if(country==='UY'){curr='UYI'} //Uruguay
+if(country==='UZ'){curr='UZS'} //Uzbekistan
+if(country==='VU'){curr='VUV'} //Vanuatu
+if(country==='VN'){curr='VND'} //Vietnam
+if(country==='WF'){curr='XPF'} //Wallis And Futuna
+if(country==='EH'){curr='MAD'} //Western Sahara
+if(country==='YE'){curr='YER'} //Yemen
+if(country==='ZM'){curr='ZMW'} //Zambia
+if(country==='ZW'){curr='ZWL'} //Zimbabwe
+
+function format(number) {
+  return number.toLocaleString(userLang, { style: 'currency', currency: curr});
+}
+
+ctx.addHtml('The amount is ' +
+            
+          format(Amount) +
+                  
+            ' what I see.',{afterVariable: 'Amount'});
+
+
+ctx.addHtml('The country code is  ' +
+            
+          country +
+                  
+            '.',{afterVariable: 'Amount'});
+
+ctx.addHtml('The language code is  ' +
+            
+          userLang +
+                  
+            '.',{afterVariable: 'Amount'});
+
+}); 
